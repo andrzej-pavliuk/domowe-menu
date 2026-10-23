@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+*.sqlite*
+.env
+*.tar
+*.zip
+
+# Local secrets and credentials
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# Local development
+.vscode/
+.coverage/
+coverage/
+.pytest_cache/
+.venv/
+venv/
+
+# Runtime data
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*

@@ -1,0 +1,31 @@
+services:
+  domowe-menu:
+    image: domowe-menu:0.4.1
+    pull_policy: never
+    container_name: domowe-menu
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Warsaw
+      APP_PASSWORD: "ZMIEŃ-TO-NA-SILNE-HASŁO"
+    volumes:
+      - domowe_menu_data:/data
+    networks:
+      nginx-proxy-manager_default:
+        aliases:
+          - domowe-menu
+    expose:
+      - "8080"
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  domowe_menu_data:
+
+networks:
+  nginx-proxy-manager_default:
+    external: true
